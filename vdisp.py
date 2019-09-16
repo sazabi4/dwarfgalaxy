@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 """
     Calculate the mean and dispersion of a data set with errors using MCMC sampling of a Gaussian likelihood function.
-    09/16/2019 updates: added in option for prior on sigma (log vs flat). fix bugs
+    09/16/2019 updates: added in option for prior on sigma (log vs flat). fix bugs, v0.1.2
     author: Ting Li
-    author: Alex Drlica-Wagner
+    author: Alex Drlica-Wagner (v0.1.0)
 """
 
 import os
@@ -14,6 +14,13 @@ import logging
 import numpy as np
 import emcee
 import scipy.stats
+
+
+try:
+    from dsphsim import __version__
+except ImportError:
+    __version__ = '0.1.2'
+
 
 PARAMS = odict([
     ('mu',r'$\mu$ (km/s)'),
